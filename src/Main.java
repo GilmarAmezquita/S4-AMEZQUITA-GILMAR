@@ -25,9 +25,9 @@ public class Main {
 			for(int j = 0; j<arrayPartsStr.length; j++) {
 				array[j] = Double.parseDouble(arrayPartsStr[j]);
 			}
-			reductArray();
 			
 			changes = bubbleSort();
+			reductArray();
 			changes = formatDouble(changes);
 			
 			bw.write(changes+"-");
