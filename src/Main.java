@@ -9,7 +9,7 @@ public class Main {
 	private static double[] array;
 	private static ArrayList<Double> finalArray;
 	
-	public static void main(String[] args) throws NumberFormatException, IOException {		
+	public static void main(String[] args) throws NumberFormatException, IOException {
 		finalArray = new ArrayList<>();
 		String[] arrayPartsStr = null;
 		
@@ -17,7 +17,8 @@ public class Main {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
 		int tries = Integer.parseInt(br.readLine());
-
+		String[] imprintArray = new String[tries];
+		
 		double changes = 0;
 		for(int i = 0; i<tries; i++) {
 			arrayPartsStr = br.readLine().split(" ");
@@ -29,12 +30,12 @@ public class Main {
 			changes = bubbleSort();
 			reductArray();
 			changes = formatDouble(changes);
-			
-			bw.write(changes+"-");
-			bw.write(writeArray());
-			bw.newLine();
-			
+			imprintArray[i] = changes+"-"+writeArray();			
 			finalArray.clear();
+		}
+		for(int i = 0; i<tries; i++) {
+			bw.write(imprintArray[i]);
+			bw.newLine();
 		}
 		br.close();
 		bw.close();
